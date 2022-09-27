@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class spiral3{
+    public static void traversal(int[][] arr, int m, int n){
+        int rowSt = 0, rowEd = m-1, colSt = 0, colEd = n-1;
+
+        while(rowSt<= rowEd && colSt <= colEd){
+            // traverse top row
+            for( int col = colSt; col<=colEd; col++){
+                System.out.print(arr[rowSt][col] + " ");
+            }
+
+            rowSt++;
+
+            // traverse right column
+            for( int row = rowSt; row <= rowEd; row++){
+                System.out.print(arr[row][colEd] + " ");
+            }
+            colEd--;
+
+            //traverse bottom row
+            for(int col = colEd; col >= colSt; col--){
+                System.out.print(arr[rowEd][col] + " ");
+            }
+            rowEd--;
+
+            //traverse left column 
+            for( int row = rowEd; row >= rowSt; row--){
+                System.out.print(arr[row][colSt] + " ");
+            }
+            colSt++;
+        }
+    }
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner( System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+
+        int[][] arr = new int[m][n];
+
+        for( int i =0; i<m; i++){
+            for( int j=0; j<n; j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0 ;i<m; i++){
+            for( int j =0; j<n; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println("\n");
+        }
+
+        traversal(arr, m, n);
+        sc.close();
+    }
+//test
+}
